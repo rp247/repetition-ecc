@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 
+#define BUFFER 4096
 
 /* read n bytes from a stream */
 int read_bytes(int *fd, uint64_t n, char *buf);	

@@ -12,6 +12,7 @@
 #include <stddef.h>
 
 #define BYTE 8
+#define BUFFER 4096
 
 static void set_bit(uint8_t *buf, uint16_t ind) {     
 	buf[ind / BYTE] |= ((uint8_t) 1 << (ind % BYTE));
@@ -26,6 +27,21 @@ static void clr_bit(uint8_t *buf, uint16_t ind) {
 static uint8_t get_bit(uint8_t *buf, uint16_t ind) {     
 	return (buf[ind / BYTE] & ((uint8_t) 1 << (ind % BYTE))) ? 1 : 0; 
 }
+
+
+/* read BUFFER (4096) bytes from an infile into a buffer */
+int read_bytes(int infile, uint8_t *buf) {
+
+	int read_ret = 1;
+
+	while (read_ret = read(infile, buf, BUFFER) > 0){
+		buf += read_ret;
+	}
+
+	return read_bytes;
+}
+
+
 
 
 /* repeat the individual bit n times */

@@ -55,9 +55,22 @@ int wr2buf(uint8_t *inp_buf, uint8_t *out_buf, uint8_t times) {
 		bit_index += times;
 	}	
 
-	if (bit_index >= BUFFER) wr2file(outfile, out_buf);
+	if (bit_index == BUFFER) {
+		wr2file(outfile, out_buf);
+		bit_index = 0;
+	}
 }
 
+
+int wr2file(int outfile, uint8_t *buf) {
+	while (write(outfile, buf, BUFFER) > 0) {
+	}
+	return 0;
+}
+
+void flush_buf(int outfile) {
+	return;
+}
 
 /* repeat the individual bit n times */
 int repeat_byte(char *inp, char *out, uint8_t n) {

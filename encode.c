@@ -78,6 +78,16 @@ int main(int argc, char **argv) {
 	 */
 
 
+	// make buffer
+	uint8_t *inp_buf = (uint8_t *) calloc(BUFFER, sizeof(uint8_t));	
+	if (!inp_buf) { fprintf(stderr, "Failed to allocate input buffer.\n"); return -1; }
+
+	// read into buffer, process the buffer, write to buf, wr2file, repeat till eof
+	//while (
+
+	// clean up
+	free(inp_buf); inp_buf = NULL;
+
 	return 0;
 }
 

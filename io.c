@@ -8,7 +8,9 @@
 
 
 #include "io.h"
+#include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <stddef.h>
 
 #define BYTE 8

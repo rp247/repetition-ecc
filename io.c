@@ -34,14 +34,15 @@ int read_bytes(int infile, uint8_t *buf) {
 
 	int read_ret = 1;
 
-	while (read_ret = read(infile, buf, BUFFER) > 0){
-		buf += read_ret;				// increment buffer index
+	while ((read_ret = read(infile, buf, BUFFER)) > 0){
+		buf += read_ret;				// increment buffer index (read till BUFFER or max)
 	}
 
 	return read_bytes;
 }
 
 
+/*
 int wr2buf(uint8_t *inp_buf, uint8_t *out_buf, uint8_t times) {
 	static uint64_t bit_index = 0;
 
@@ -71,6 +72,7 @@ int wr2file(int outfile, uint8_t *buf) {
 void flush_buf(int outfile) {
 	return;
 }
+*/
 
 /* repeat the individual bit n times */
 int repeat_byte(char *inp, char *out, uint8_t n) {
